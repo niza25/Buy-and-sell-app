@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
+import  Card  from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button'
 
 export default function AdsDisplay(props) {
   return (
@@ -8,9 +10,16 @@ export default function AdsDisplay(props) {
 
       <ul>
         {props.ads.map(adv => {
-          return <li key={adv.id}>
-            <Link to={`/ads/${adv.id}`}>{adv.title} - {adv.price} Euro</Link>
-          </li>
+          return (<Card style={{ width: '8rem' }}>
+            <Card.Img variant="top" src={adv.photoUrl} />
+            <Card.Body>
+              <Card.Title>{adv.title}</Card.Title>
+              <Card.Text>
+                {adv.price} Euro
+            </Card.Text>
+              <Button variant="primary"><Link to={`/ads/${adv.id}`}>More</Link></Button>
+            </Card.Body>
+          </Card>)
         })}
 
       </ul>
@@ -19,6 +28,6 @@ export default function AdsDisplay(props) {
   )
 }
 
-
-
-
+/* return <li key={adv.id}>
+            <Link to={`/ads/${adv.id}`}>{adv.title} - {adv.price} Euro</Link>
+          </li> */

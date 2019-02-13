@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
 
 export default function AdDetailsDisplay(props) {
   return (
@@ -11,10 +12,9 @@ export default function AdDetailsDisplay(props) {
       <img src={props.photo} alt='product' />
       <p>Email: {props.email}</p>
       <p>Phone: {props.phone}</p>
-      <button>
+      <Button variant="info" size="lg" block>
       <Link to='/ads'>Back</Link>
-      </button>
-      
+      </Button>
     </div>
   )
 }
