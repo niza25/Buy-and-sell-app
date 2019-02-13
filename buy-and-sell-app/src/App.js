@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import store from './store'
-import './App.css';
 import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
 import AdsContainer from './components/AdsContainer'
