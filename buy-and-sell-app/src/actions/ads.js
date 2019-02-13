@@ -1,6 +1,7 @@
 import request from 'superagent';
 
 export const ADS_FETCHED = 'ADS_FETCHED'
+export const AD_FETCHED = 'AD_FETCHED'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -15,6 +16,20 @@ export const loadAds = () => (dispatch, getState) => {
   request(`${baseUrl}/ads`)
     .then(response => {
       dispatch(adsFetched(response.body))
+    })
+    .catch(console.error)
+}
+
+// get one add - display details
+const adFetched = ad => ({
+  type: AD_FETCHED,
+  ad
+})
+
+export const loadAd = (id) => (dispatch) => {
+  request(`${baseUrl}/ads/${id}`)
+    .then(response => {
+      dispatch(adFetched(response.body))
     })
     .catch(console.error)
 }

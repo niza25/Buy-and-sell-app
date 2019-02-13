@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import { Link } from 'react-router-dom'
 
 export default function AdsDisplay(props) {
   return (
@@ -8,7 +8,9 @@ export default function AdsDisplay(props) {
 
       <ul>
         {props.ads.map(adv => {
-          return <li key={adv.id}>{adv.title} - {adv.price} Euro</li>
+          return <li key={adv.id}>
+            <Link to={`/ads/${adv.id}`}>{adv.title} - {adv.price} Euro</Link>
+          </li>
         })}
 
       </ul>
@@ -16,9 +18,6 @@ export default function AdsDisplay(props) {
     </div>
   )
 }
-
-
-// <Link to={`/ads/${ad.id}`}>{ad.title} {ad.price}</Link>
 
 
 
