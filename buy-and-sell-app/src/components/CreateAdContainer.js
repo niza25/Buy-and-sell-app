@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 export default class CreateAdContainer extends React.Component {
   render() {
     return (
-      <Container style={{ width: '18rem' }} className='mt-5'>
+      <Container style={{ width: '18rem' }}>
       <Row  className="justify-content-center">
         <Col>
         <Button variant="success" block disabled>Add an ad</Button>
