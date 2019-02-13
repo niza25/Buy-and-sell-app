@@ -1,4 +1,4 @@
-import { JsonController, Get, Param } from 'routing-controllers'
+import { JsonController, Get, Param, Post, HttpCode, Body } from 'routing-controllers'
 import Ad from './entity'
 
 @JsonController()
@@ -17,9 +17,13 @@ export default class AdController {
   ) {
     return Ad.findOne(id)
   }
-
   
-
-  /* // to add one
-  @Post('/ads') */
+  @Post('/ads')
+  @HttpCode(201)
+  createPage(
+    @Body() ad: Ad
+  ) {
+    return ad.save()
+  }
+  
 }

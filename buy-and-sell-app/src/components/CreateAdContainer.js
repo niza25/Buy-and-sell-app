@@ -1,20 +1,50 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { connect } from 'react-redux'
+import CreateAdForm from './CreateAdForm'
+import { createAd } from '../actions/ads'
 
 
-export default class CreateAdContainer extends React.Component {
+class CreateAdContainer extends React.Component {
+  state = {
+    title: '',
+    price: '',
+    description: '',
+    photoUrl: '',
+    email: '',
+    phone: ''
+  }
+
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault()
+    this.props.createAd(this.state)
+    this.setState({
+      title: '',
+      price: '',
+      description: '',
+      photoUrl: '',
+      email: '',
+      phone: ''
+    })
+    this.props.history.push('/ads')
+  }
+
   render() {
     return (
-      <Container style={{ width: '18rem' }}>
-      <Row  className="justify-content-center">
-        <Col>
-        <Button variant="success" block disabled>Add an ad</Button>
-        </Col>
-      </Row>
-    </Container >
+      <CreateAdForm
+        onSubmit={this.onSubmit}
+        onChange={this.onChange}
+        info={this.state}
+      />
     )
+
+
   }
 }
+
+export default connect(null, { createAd })(CreateAdContainer)
