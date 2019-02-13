@@ -1,4 +1,4 @@
-import { JsonController, Get } from 'routing-controllers'
+import { JsonController, Get, Param } from 'routing-controllers'
 import Ad from './entity'
 
 @JsonController()
@@ -10,10 +10,16 @@ export default class AdController {
     const ads = await Ad.find()
     return { ads }
   }
-
-  /* // show a single on
+  // show one
   @Get('/ads/:id')
+  getAd(
+    @Param('id') id: number
+  ) {
+    return Ad.findOne(id)
+  }
+
   
-  // to add one
+
+  /* // to add one
   @Post('/ads') */
 }
