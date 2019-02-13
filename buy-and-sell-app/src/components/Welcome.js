@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 
 export default function Welcome(props) {
   return (
-    <div>
+    <div className='Welcome'>
       <h1>Welcome to Mini Buy-and-sell Platform</h1>
       <p>We the best Buy-And-Sell platform! </p>
       <p>We make your dreams come true!</p>
-      <Link to={`/ads`}>Click and explore</Link>
+      <button>
+        <Link to={`/ads`}>Click and explore</Link>
+      </button>
     </div>
   )
 }

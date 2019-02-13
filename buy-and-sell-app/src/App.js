@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import store from './store'
+import './App.css';
 import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
 import AdsContainer from './components/AdsContainer'
@@ -10,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
+        <div className='App'>
           <Route path="/" exact component={Welcome} />
           <Route path="/ads" exact component={AdsContainer} />
           <Route path="/ads/:id" component={AdDetailsContainer} />

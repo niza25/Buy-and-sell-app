@@ -11,7 +11,6 @@ class AdDetailsContainer extends React.Component {
 
   render() {
     if (!this.props.ad) return <h1>Loading...</h1>
-    console.log(this.props.ad)
     return <AdDetailsDisplay
       title={this.props.ad.title}
       price={this.props.ad.price}
